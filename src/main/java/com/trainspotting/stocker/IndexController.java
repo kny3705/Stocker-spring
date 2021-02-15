@@ -1,4 +1,4 @@
-package com.trainspotting.stocker.comtroller;
+package com.trainspotting.stocker;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
