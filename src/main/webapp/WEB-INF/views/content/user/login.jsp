@@ -20,3 +20,5 @@
 		<li><a href="/user/signup">Sign up</a></li>
 	</ul>
 </section>
+
+<script type="module" src="/res/js/login.js"></script>

@@ -1,5 +1,7 @@
 package com.trainspotting.stocker.user;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,4 +27,19 @@ public class UserService {
 		
 		return mapper.insert(param);
 	}
+	
+	public int login(User param, HttpSession session) {
+		User data = mapper.select(param);
+		
+		if(data == null) return -1;
+		
+		String plain = param.getPw();
+		String hashed = data.getPw();
+		if(!security.checkPw(plain, hashed)) return -2;
+		
+		data.setPw(null);
+		session.setAttribute("current_user", data);
+		return 1;
+	}
+	
 }
